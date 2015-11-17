@@ -4,8 +4,19 @@ public class FracCalc {
 
     public static void main(String[] args) 
     {
-        // TODO: Read the input from the user and call produceAnswer with an equation
+    	public static String produceAnswer (String input)
+    	 Scanner scan = new Scanner(System.in);
+    		scan.nextLine();
+    		produceAnwer("1/4+2/3");
 
+        	String firstOperand = ("1/4");
+        	String secondOperand = ("2/3");
+        	String operator = ("+","-","*","/");
+        			
+        			
+    	
+        // TODO: Read the input from the user and call produceAnswer with an equation
+    	System.out.print(produceAnswer());
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
