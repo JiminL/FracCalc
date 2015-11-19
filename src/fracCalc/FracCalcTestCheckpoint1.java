@@ -7,59 +7,7 @@ import org.junit.Test;
 // Checkpoint 1-only tests
 public class FracCalcTestCheckpoint1
 {
-	public static void main(String[] args) 
-    {
-		public static String produceAnswer(String input)
-		{
-					
-			for (int n=0; n<= input.length ; n++)
-			{
-				if (input.indexOf(n) == |+| && |-| && |*| && |/|)
-				{
-					String operator = input.substring((i.i+1));
-					
-				}
-			}
-			String firstOperand = input.substring(substring (0, input.indexOf(operator));
-			String secondOperand = input.substring(input.indexOf(operator)+1);
 			
-			return secondOperand;
-		}
-		
-		public static void main(String []args)
-		{
-			Scanner a = new Scanner(System.in);
-			System.out.println("Input an arithmetic equation ); ");
-			
-			String A = a.nextLine;
-			System.out.println(prodceAnswer(A));
-			
-		
-		}
-		//Scanner a = new Scanner (System.in);
-		
-		//System.out.print("input an equation: ");
-		//String produceAnswer = a.nextLine();
-		
-   		
-			//String firstOperand = 
-   				//	produceAnswer.substring(0, index(operator));
-   			
-			//String secondOperand = 
-					//produceAnswer.substring(index(operator), produceAnswer.length());
-			
-   			//String operator = 
-   				//	produceAnswer.index();
-   			
-   			//*????? if (char == |+||-||*||/|) ????
-   			//{ String operator;
-   			//}
-       
-
-}
-	
-
-		
     private static int index(Object operator) {
 		// TODO Auto-generated method stub
 		return 0;
