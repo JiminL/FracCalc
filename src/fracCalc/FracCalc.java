@@ -67,9 +67,16 @@ public class FracCalc {
     	
     	String operator = "";
        
-    	for (int n=0; n<= input.length() ; n++)
+    	//System.out.println(input);
+    	//System.out.println(input.length());
+    	
+    	//System.out.println(input.substring(1));
+    	
+    	for (int n=0; n<input.length() ; n++)
 		{
-    		String test = input.substring(n,1);
+    		//System.out.println("n = " + n);
+    		//System.out.println(input.substring(n,n+1));
+    		String test = input.substring(n,n +1);
 			if (test == "+" || test == "-" || test == "*" || test == "/")
 			
 			{
