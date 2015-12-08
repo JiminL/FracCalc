@@ -8,7 +8,7 @@ import org.junit.Test;
 public class FracCalcTestCheckpoint1
 {
 			
-    private static int index(Object operator) {
+    private static int index (Object operator) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

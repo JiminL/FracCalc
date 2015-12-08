@@ -29,43 +29,15 @@ public class FracCalc {
 			
 			String A = a.nextLine();
 			System.out.println(produceAnswer(A));
-			
-		
 		}
-		//Scanner a = new Scanner (System.in);
-		
-		//System.out.print("input an equation: ");
-		//String produceAnswer = a.nextLine();
-		
-   		
-			//String firstOperand = 
-   				//	produceAnswer.substring(0, index(operator));
-   			
-			//String secondOperand = 
-					//produceAnswer.substring(index(operator), produceAnswer.length());
-			
-   			//String operator = 
-   				//	produceAnswer.index();
-   			
-  
-    	
-        // TODO: Read the input from the user and call produceAnswer with an equation
-//    	System.out.print(produceAnswer());
-//    }
-    
-    // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
-    // This function takes a String 'input' and produces the result
-    //
-    // input is a fraction string that needs to be evaluated.  For your program, this will be the user input.
-    //      e.g. input ==> "1/2 + 3/4"
-    //        
-    // The function should return the result of the fraction after it has been calculated
-    //      e.g. return ==> "1_1/4"
+
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
     	
     	String operator = "";
+    	int operator_position = 0;
+   
        
     	//System.out.println(input);
     	//System.out.println(input.length());
@@ -74,21 +46,96 @@ public class FracCalc {
     	
     	for (int n=0; n<input.length() ; n++)
 		{
-    		//System.out.println("n = " + n);
-    		//System.out.println(input.substring(n,n+1));
+ //   		System.out.println("n = " + n);
+//    		System.out.println(input.substring(n,n+1));
     		String test = input.substring(n,n +1);
-			if (test == "+" || test == "-" || test == "*" || test == "/")
+			if (test.equals(" ") && operator.equals(""))
 			
 			{
-				operator = input.substring(n, n+1);
+				operator = input.substring(n+1, n+2);
+				operator_position = n+1; 
+			
 				
+	//		System.out.println(operator);
 			}
 		}
     	
 		String firstOperand = input.substring(0, input.indexOf(operator));
-		String secondOperand = input.substring(input.indexOf(operator)+1);
+		String secondOperand = input.substring(operator_position+2);
 		
 		return secondOperand;
     }
+
+    	String[] splitFraction (String input){
+    		
+    		{	int int1 = Integer.parseInt(firstOperand.substring(0,firstOperand.indexOf("_")));
+    			
+    			
+    			int num1= 
+    		       Integer.parseInt(firstOperand.substring(firstOperand.indexOf("_")+firstOperand.indexOf("/")));
+    			int den1=
+    			   Integer.parseInt(firstOperand.substring(firstOperand.indexOf("/")+1));
+    			
+    			int num2=
+    			   Integer.parseInt(secondOperand.substring(0,secondOperand.indexOf("_")+secondOperand.indexOf("/")));
+    			int den2=
+    			   Integer.parseInt(secondOperand.substring(secondOperand.indexOf("/")+1));
+    	
+    	
+    	}
     
-}
+    	
+    	return ?
+    					
+    	//String[] splitFraction (String input)
+    		//denominator=input
+    	
+    			//answer = {whole, numerator, denominator};
+    
+   // 	public int Numerator ;
+    //	public int Denominator ;
+    	
+    //		int getNumerator() {
+    //			return Numerator; 
+    			
+    //		}
+    //	public void setNumerator(int Numerator){
+    	//	this. Numerator = Numerator;
+    	//}
+    	
+    //		int getDenominator(){
+    	//	return Denominator ;
+    	//}
+    		
+    //	public void setDenominator(int Denominator){
+    	//	this.Denominator = Denominator;
+    	//}
+    	//public void display(){
+    		//if (Numerator == 0 || Denominator == 1 ){
+    			//System.out.print(Numerator);
+    		//}
+    		//else {
+    			//if ((Numerator <0 && Denominator <0) || (Numerator >0 && Denominator <0)) {
+    				//Numerator = -1;
+    			//Denominator = -1;
+    		//	}
+    			//if (Numerator == Denominator){
+    				//System.out.print("1");
+    				//return 
+    		//	}		
+    //	public void splitFraction(String input){
+    	//		Denominator=input.lastIndexOf("/");
+    			
+    		//	String[]answer={whole, Numerator, Denominator}
+ //   	firstSplit = splitFraction(first Part);
+	//	secondSplit = splitFraction(second Part) 
+		//		return "whole:" +firstSplit[0]+"numerator" + firstSplit[1]+ "denominator" + firstSplit[2]
+    		
+    		//	gcd = denominator 1 * denominator 2
+    			
+    		//	top1 = numerator 1 * denominator 2 
+    		//	top2 = numerator 2 * denomiator 1
+    			
+    			
+    		}
+    
