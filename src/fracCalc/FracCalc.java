@@ -28,7 +28,15 @@ public class FracCalc {
 			System.out.println("Input an arithmetic equation ); ");
 			
 			String A = a.nextLine();
-			System.out.println(produceAnswer(A));
+			while(!A.equalsIgnoreCase("quit"))
+			
+			{
+				System.out.println(produceAnswer(A));
+				System.out.println("Input another equation:");
+				A = a.nextLine();
+			}
+			
+			System.out.println("Thank you.");
 		}
 
     public static String produceAnswer(String input)
@@ -73,12 +81,11 @@ public class FracCalc {
     	if(firstOperand.indexOf("_")==-1&&firstOperand.indexOf("/")==-1)
     	{
     		int1 = Integer.parseInt(firstOperand);
-    		num1 = 0;
     		den1 = 1;
     	}
     	else if(firstOperand.indexOf("_")==-1&&firstOperand.indexOf("/")!=-1)
     	{
-    		int1 = 0;
+    		
     		num1 = Integer.parseInt(firstOperand.substring(0, firstOperand.indexOf("/")));
     		den1 = Integer.parseInt(firstOperand.substring(firstOperand.indexOf("/")+1));
     	}
@@ -92,13 +99,13 @@ public class FracCalc {
     	if(secondOperand.indexOf("_")==-1&&secondOperand.indexOf("/")==-1)
     	{
     		int2 = Integer.parseInt(secondOperand);
-    		num2 = 0;
     		den2 = 1;
     	}
-    	else if(secondOperand.indexOf("_")==-1&&secondOperand.indexOf("/")!=-1)
+    	
+    	else 
+    	if(secondOperand.indexOf("_")==-1&&secondOperand.indexOf("/")!=-1)
     	{
-    		int2 = 0;
-    		num2 = Integer.parseInt(secondOperand.substring(0, secondOperand.indexOf("/")));
+    		num2 = Integer.parseInt(secondOperand.substring(0,secondOperand.indexOf("/")));
     		den2 = Integer.parseInt(secondOperand.substring(secondOperand.indexOf("/")+1));
     	}	
     	else
@@ -108,14 +115,242 @@ public class FracCalc {
     		den2 = Integer.parseInt(secondOperand.substring(secondOperand.indexOf("/")+1));
     	}
 
-   
-    	String result = "";
-    	result += "In \"SecondOperand\"";
-    	result += "\n\tWhole number: "+ int2;
-    	result += "\n\tNumerator: "+ num2;
-    	result += "\n\tDenominator: "+ den2;
+    	if (operator.equals("+"))
+    	{
+    		int whole = int1 +int2;
+    		if (num1 ==0 && num2 ==0)
+    		{
+    			return "Result:" +whole;
+    		}
+    		else
+    		{ 
+    			int num= 0, den= 0;
+    			if (num1 == 0&& num1 != 0)
+    			{ 
+    				num= num1;
+    				den= den1;
+    				
+    			}
+    			else
+    			{
+    				num = num1*den2*den1;
+    				den = den1 *den2;
+    			}
+    			int gcd = GCD (num,den);
+    			
+    			if (num>den)
+    			{
+    				num = num-den;
+    				whole ++;
+    			}
+    			num = num/gcd;
+    			den = den/gcd;
+    			
+    			if (whole==0)
+    			{
+    				return "Result;"+num+"/"+den;
+    			}
+    			else 
+    			{
+    				return "Result: "+whole+"_"+num+"/"+den;
+    			}
+    		}
+    	}
+    	else if (operator.equals("-"))
+    	{
+    		int whole = int1-int2;
+    		
+    		if(num1==0&& num2==0)
+    		{
+    			return "Result:"+whole;
+    		}
+    		else
+    		{
+    			int num =0, den =0;
+    			if (num1 ==0&& num2!=0)
+    			{
+    				num = num2;
+    				den = den2;
+    			}
+    			else if(num1!=0 && num2 ==0)
+    			{ 
+    				num = num1;
+    				den = den1;
+    			}
+    			else if (num1 ==0 && num2 ==0)
+    			{ num = 0;
+                }
+                else
+                {
+                    num = num1*den2-num2*den1;
+                    den = den1*den2;
+                }
+                int gcd = GCD(num, den);
+                
+                if(whole<0)
+                {                
+                    if(num<0)
+                    {
+                        num = num*-1;
+                    }
+                    else
+                    {
+                        num = den-num;
+                        whole++;
+                    }
+                }
+                else
+                {
+                    if(num<0)
+                    {
+                        num = den-num;
+                        whole--;
+                    }
+                }
+                num = num/gcd;
+                den = den/gcd;
+                
+                if(whole==0)
+                {
+                    return "Result: "+num+"/"+den;
+                }
+                else
+                {
+                    return "Result: "+whole+"_"+num+"/"+den;
+                }
+            }
+        }
+        else if(operator.equals("*"))
+        {
+            if(num1==0 && num2==0)
+            {
+                return "Result: "+(int1*int2);
+            }
+            else
+            {
+                int num = 0, den = 0;
+                if(num1!=0 && num2==0)
+                {
+                    num1 = int1*den1+num1;
+                    num = num1*int2;
+                    den = den1;
+                }
+                else if(num1==0 && num2!=0)
+                {
+                    num2 = int2*den2+num2;
+                    num = int1*num2;
+                    den = den2;
+                }
+                else
+                {
+                    num1 = int1*den1+num1;
+                    num2 = int2*den2+num2;
+                    num = num1*num2;
+                    den = den1*den2;
+                }
+                int gcd = GCD(num,den);
+                int whole = 0;
+                while(num>den)
+                {
+                    num = num-den;
+                    whole++;
+                }
+                num = num/gcd;
+                den = den/gcd;
+                
+                if(whole==0)
+                {
+                    return "Result: "+num+"/"+den;
+                }
+                else
+                {
+                    return "Result: "+whole+"_"+num+"/"+den;
+                }
+            }
+        }
+        else
+        {
+            if(num1==0 && num2==0)
+            {
+                int gcd = GCD(int1,int2);
+                int1 = int1/gcd;
+                int2 = int2/gcd;
+                
+                return "Result: "+int1+"/"+int2;
+            }
+            else
+            {
+                int num = 0, den = 0;
+                if(num1!=0 && num2==0)
+                {
+                    num1 = int1*den1+num1;
+                    num = num1;
+                    den = den1*int2;
+                }
+                else if(num1==0 && num2!=0)
+                {
+                    num2 = int2*den2+num2;
+                    num = int1*den2;
+                    den = den1*num2;
+                }
+                else
+                {
+                    if(int1!=0 && int2!=0)
+                    {
+                        num1 = int1*den1+num1;
+                        num2 = int2*den2+num2;
+                    }
+                    else if(int1==0 && int2!=0)
+                    {
+                        num2 = int2*den2+num2;
+                    }
+                    else if(int1!=0 && int2==0)
+                    {
+                        num1 = int1*den1+num1;
+                    }
+                    num = num1*den2;
+                    den = den1*num2;
+                }
+                int gcd = GCD(num,den);
+                int whole = 0;
+                while(num>den)
+                {
+                     num = num-den;
+                     whole++;
+                }
+                num = num/gcd;
+                den = den/gcd;
+                
+                if(whole==0)
+                {
+                    return "Result: "+num+"/"+den;
+                }
+                else
+                {
+                    return "Result: "+whole+"_"+num+"/"+den;
+                }
+            }
+        }
+    }
     
-    	return result;
+    public static int GCD(int a, int b) 
+    {
+        if (b == 0)
+        {
+            return a;
+        }
+        return GCD(b, a % b);
+    }
+
+    		
+    	{
+    	//String result = "";
+    	//result += "In \"SecondOperand\"";
+    	//result += "\n\tWhole number: "+ int2;
+    	//result += "\n\tNumerator: "+ num2;
+    	//result += "\n\tDenominator: "+ den2;
+    
+    	//return result;
 	}
 }
     	
