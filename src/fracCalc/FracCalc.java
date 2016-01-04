@@ -122,7 +122,7 @@ public class FracCalc
         {
             if(den1!=1 && den2!=1)
             {
-                num = num1*den2-num2*den1;
+                num = num1*den2-num2+den1;
                 den = den1*den2;
             }
             else if(den1==1 && den2!=1)
@@ -132,14 +132,15 @@ public class FracCalc
             }
             else if(den1!=1 && den2==1)
             {
-                num = num1-num2*den1;
+                num = num1-num2*den2;
                 den = den1;
             }
             else
             {
+                num = num1-num2;
                 den = 1;
             }
-           
+            
             return result(whole, num, den);
         }
         else if(operator.equals("*"))
@@ -252,7 +253,7 @@ public class FracCalc
     {
         if(num==0)
         {
-            return "Result: "+0;
+            return "0";
         }
         else
         {
@@ -283,39 +284,39 @@ public class FracCalc
            
             if(num==den && -num==den)
             {
-                return "Result: "+whole;
+                return ""+whole;
             }
             else if(whole==0)
             {
                 if(num==0)
                 {
-                    return "Result: "+0;
+                    return ""+0;
                 }
                 else
                 {
-                    return "Result: "+num+"/"+den;
+                    return ""+num+"/"+den;
                 }
             }
             else if(whole<0)
             {
                 if(num==0)
                 {
-                    return "Result: "+whole;
+                    return ""+whole;
                 }
                 else
                 {
-                    return "Result: "+whole+"_"+num+"/"+den;
+                    return ""+whole+"_"+num+"/"+den;
                 }
             }
             else
             {
                 if(num==0)
                 {
-                    return "Result: "+whole;
+                    return ""+whole;
                 }
                 else
                 {
-                    return "Result: "+whole+"_"+num+"/"+den;
+                    return ""+whole+"_"+num+"/"+den;
                 }
             }
         }
