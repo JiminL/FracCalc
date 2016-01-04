@@ -4,6 +4,7 @@ import java.util.*;
 public class FracCalc
 {
     public static void main(String []args)
+    {public static void main(String []args)
     {
         Scanner a = new Scanner(System.in);
         System.out.println("Input an arithmetic equation: ");
@@ -122,7 +123,7 @@ public class FracCalc
         {
             if(den1!=1 && den2!=1)
             {
-                num = num1*den2-num2+den1;
+                num = num1*den2-num2*den1;
                 den = den1*den2;
             }
             else if(den1==1 && den2!=1)
@@ -132,15 +133,14 @@ public class FracCalc
             }
             else if(den1!=1 && den2==1)
             {
-                num = num1-num2*den2;
+                num = num1-num2*den1;
                 den = den1;
             }
             else
             {
-                num = num1-num2;
                 den = 1;
             }
-            
+           
             return result(whole, num, den);
         }
         else if(operator.equals("*"))
