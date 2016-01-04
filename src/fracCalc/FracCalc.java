@@ -4,7 +4,6 @@ import java.util.*;
 public class FracCalc
 {
     public static void main(String []args)
-    {public static void main(String []args)
     {
         Scanner a = new Scanner(System.in);
         System.out.println("Input an arithmetic equation: ");
